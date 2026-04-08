@@ -1,0 +1,377 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Power House Gym - Transform Your Body. Build Your Strength.</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: 'Arial', sans-serif;
+            line-height: 1.6;
+            color: #333;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        /* Hero Section */
+        .hero {
+            background-image: url('hero-image.jpg'); /* Replace with your first image */
+            background-size: cover;
+            background-position: center;
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            color: white;
+            position: relative;
+        }
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0,0,0,0.5);
+        }
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            max-width: 800px;
+        }
+        .hero h1 {
+            font-size: 3.5rem;
+            margin-bottom: 1rem;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.7);
+        }
+        .hero p {
+            font-size: 1.5rem;
+            margin-bottom: 2rem;
+            text-shadow: 1px 1px 2px rgba(0,0,0,0.7);
+        }
+        .hero .contact-info {
+            font-size: 1.2rem;
+            margin-bottom: 2rem;
+        }
+        .hero .quote {
+            font-size: 1.8rem;
+            font-style: italic;
+            border-left: 4px solid #ff6b35;
+            padding-left: 2rem;
+        }
+        /* Buttons */
+        .btn {
+            display: inline-block;
+            padding: 15px 30px;
+            background: #ff6b35;
+            color: white;
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: bold;
+            margin: 10px;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+        .btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.3);
+        }
+        .whatsapp-btn {
+            background: #25D366;
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            z-index: 1000;
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2rem;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+        }
+        .message-btn {
+            background: #007bff;
+            position: fixed;
+            bottom: 100px;
+            right: 20px;
+            z-index: 1000;
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+        }
+        /* Sections */
+        section {
+            padding: 80px 0;
+        }
+        .section-title {
+            text-align: center;
+            font-size: 2.5rem;
+            margin-bottom: 3rem;
+            color: #2c3e50;
+        }
+        /* About */
+        .about {
+            background: #f8f9fa;
+        }
+        .about-content {
+            text-align: center;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        .about p {
+            font-size: 1.2rem;
+            margin-bottom: 1.5rem;
+        }
+        /* Services */
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+        .service-item {
+            text-align: center;
+            padding: 2rem;
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            transition: transform 0.3s;
+        }
+        .service-item:hover {
+            transform: translateY(-10px);
+        }
+        .service-item i {
+            font-size: 3rem;
+            color: #ff6b35;
+            margin-bottom: 1rem;
+        }
+        /* Equipment */
+        .equipment-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+        .equipment-item {
+            text-align: center;
+            position: relative;
+        }
+        .equipment-item img {
+            width: 100%;
+            height: 300px;
+            object-fit: cover;
+            border-radius: 10px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+        }
+        .equipment-overlay {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: linear-gradient(transparent, rgba(0,0,0,0.8));
+            color: white;
+            padding: 2rem 1rem 1.5rem;
+            border-radius: 0 0 10px 10px;
+        }
+        .equipment-name {
+            font-size: 1.5rem;
+            font-weight: bold;
+        }
+        /* Contact */
+        .contact {
+            background-image: url('building-image.jpg'); /* Replace with your last building image */
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            color: white;
+            position: relative;
+        }
+        .contact::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0,0,0,0.7);
+        }
+        .contact-content {
+            position: relative;
+            z-index: 2;
+            text-align: center;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+        .contact-info {
+            font-size: 1.3rem;
+            margin-bottom: 1rem;
+        }
+        /* Footer */
+        footer {
+            background: #2c3e50;
+            color: white;
+            text-align: center;
+            padding: 2rem 0;
+        }
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+            .hero p {
+                font-size: 1.2rem;
+            }
+            .section-title {
+                font-size: 2rem;
+            }
+        }
+    </style>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-content">
+            <h1>POWER HOUSE GYM</h1>
+            <p>Transform Your Body. Build Your Strength.</p>
+            <div class="hero-contact-info">
+                <p><i class="fas fa-map-marker-alt"></i> RTO Office Rd, Navodaya Colony, Anantapur, Andhra Pradesh 515001</p>
+                <p><i class="fas fa-phone"></i> 8885505830</p>
+            </div>
+            <p class="quote">“Train Hard. Stay Strong.”</p>
+            <a href="#contact" class="btn">Get Started</a>
+        </div>
+    </section>
+
+    <!-- WhatsApp & Message Buttons -->
+    <a href="https://wa.me/918885505830?text=Hi! I'm interested in joining Power House Gym!" class="whatsapp-btn" target="_blank">
+        <i class="fab fa-whatsapp"></i>
+    </a>
+    <a href="tel:8885505830" class="message-btn">
+        <i class="fas fa-phone"></i>
+    </a>
+
+    <!-- About Section -->
+    <section class="about" id="about">
+        <div class="container">
+            <h2 class="section-title">About Power House Gym</h2>
+            <div class="about-content">
+                <p>Welcome to Power House Gym, where fitness meets dedication.</p>
+                <p>We provide modern equipment, professional training, and a motivating environment to help you achieve your fitness goals.</p>
+                <p>Whether you are a beginner or an advanced athlete, our gym is designed to support your journey.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section class="services" id="services">
+        <div class="container">
+            <h2 class="section-title">Our Services</h2>
+            <div class="services-grid">
+                <div class="service-item">
+                    <i class="fas fa-heartbeat"></i>
+                    <h3>Aerobics</h3>
+                </div>
+                <div class="service-item">
+                    <i class="fas fa-bicycle"></i>
+                    <h3>Cycling</h3>
+                </div>
+                <div class="service-item">
+                    <i class="fas fa-user-tie"></i>
+                    <h3>Personal Training</h3>
+                </div>
+                <div class="service-item">
+                    <i class="fas fa-dumbbell"></i>
+                    <h3>Weight Training</h3>
+                </div>
+            </div>
+            <div style="text-align: center; margin-top: 3rem;">
+                <p style="font-size: 1.5rem; font-style: italic; color: #ff6b35;">“Your transformation starts here.”</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Equipment Section -->
+    <section class="equipment" id="equipment">
+        <div class="container">
+            <h2 class="section-title">Our Equipment</h2>
+            <div class="equipment-grid">
+                <div class="equipment-item">
+                    <img src="precision-leg-trainer.jpg" alt="Precision Leg Trainer">
+                    <div class="equipment-overlay">
+                        <div class="equipment-name">Precision Leg Trainer</div>
+                    </div>
+                </div>
+                <div class="equipment-item">
+                    <img src="cable-machine.jpg" alt="Cable Machine">
+                    <div class="equipment-overlay">
+                        <div class="equipment-name">Cable Machine</div>
+                    </div>
+                </div>
+                <div class="equipment-item">
+                    <img src="leg-press-machine.jpg" alt="Leg Press Machine">
+                    <div class="equipment-overlay">
+                        <div class="equipment-name">Leg Press Machine</div>
+                    </div>
+                </div>
+                <div class="equipment-item">
+                    <img src="ab-coaster.jpg" alt="Ab Coaster">
+                    <div class="equipment-overlay">
+                        <div class="equipment-name">Ab Coaster</div>
+                    </div>
+                </div>
+            </div>
+            <div style="text-align: center; margin-top: 3rem;">
+                <p style="font-size: 1.5rem; font-style: italic; color: #ff6b35;">“Train with advanced machines for maximum results.”</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="contact" id="contact">
+        <div class="container">
+            <div class="contact-content">
+                <h2 class="section-title">Contact Us</h2>
+                <div class="contact-info">
+                    <p><i class="fas fa-map-marker-alt"></i> RTO Office Rd, Navodaya Colony, Anantapur, Andhra Pradesh 515001</p>
+                    <p><i class="fas fa-phone"></i> 8885505830</p>
+                </div>
+                <a href="https://wa.me/918885505830?text=Hi! I'd like more information about Power House Gym!" class="btn">WhatsApp Us</a>
+                <a href="tel:8885505830" class="btn">Call Now</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <p>&copy; 2024 Power House Gym. All rights reserved. | Train Hard. Stay Strong.</p>
+        </div>
+    </footer>
+
+    <script>
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+    </script>
+</body>
+      </html>
