@@ -1,0 +1,404 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Power House Gym - Transform Your Body. Build Your Strength.</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Arial', sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('building-image.jpg'); /* Replace with your building image */
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            min-height: 100vh;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Header/Hero Section */
+        .hero {
+            background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('hero-image.jpg'); /* Replace with your first hero image */
+            background-size: cover;
+            background-position: center;
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            color: white;
+        }
+
+        .hero h1 {
+            font-size: 4rem;
+            margin-bottom: 1rem;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.8);
+        }
+
+        .hero p {
+            font-size: 1.5rem;
+            margin-bottom: 2rem;
+            text-shadow: 1px 1px 2px rgba(0,0,0,0.8);
+        }
+
+        .contact-info {
+            background: rgba(255,255,255,0.95);
+            padding: 1.5rem;
+            border-radius: 10px;
+            box-shadow: 0 8px 32px rgba(0,0,0,0.3);
+            margin-bottom: 2rem;
+        }
+
+        .contact-info div {
+            margin-bottom: 0.5rem;
+            font-size: 1.2rem;
+        }
+
+        .motto {
+            font-size: 2rem;
+            font-weight: bold;
+            color: #ff6b35;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+        }
+
+        /* Navigation */
+        nav {
+            background: rgba(0,0,0,0.9);
+            padding: 1rem 0;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            justify-content: center;
+        }
+
+        nav li {
+            margin: 0 2rem;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            font-size: 1.2rem;
+            transition: color 0.3s;
+        }
+
+        nav a:hover {
+            color: #ff6b35;
+        }
+
+        /* Sections */
+        section {
+            padding: 80px 0;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 3rem;
+            margin-bottom: 3rem;
+            color: white;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.8);
+        }
+
+        /* About Section */
+        .about {
+            background: rgba(255,255,255,0.95);
+            margin: 2rem 0;
+            padding: 3rem;
+            border-radius: 20px;
+            box-shadow: 0 15px 40px rgba(0,0,0,0.3);
+        }
+
+        .about p {
+            font-size: 1.3rem;
+            text-align: center;
+            max-width: 800px;
+            margin: 0 auto 1.5rem;
+            color: #333;
+        }
+
+        /* Services Section */
+        .services {
+            background: rgba(255,255,255,0.9);
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .service-item {
+            background: white;
+            padding: 2rem;
+            border-radius: 15px;
+            text-align: center;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .service-item:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 50px rgba(0,0,0,0.3);
+        }
+
+        .service-item h3 {
+            font-size: 1.5rem;
+            color: #ff6b35;
+            margin-bottom: 1rem;
+        }
+
+        /* Equipment Section */
+        .equipment-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .equipment-item {
+            background: rgba(255,255,255,0.95);
+            padding: 2rem;
+            border-radius: 15px;
+            text-align: center;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+            height: 300px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .equipment-item img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            border-radius: 10px;
+            margin-bottom: 1rem;
+        }
+
+        /* Contact Section */
+        .contact {
+            text-align: center;
+        }
+
+        .contact-info-large {
+            background: rgba(255,255,255,0.95);
+            padding: 3rem;
+            border-radius: 20px;
+            box-shadow: 0 15px 40px rgba(0,0,0,0.4);
+            max-width: 500px;
+            margin: 0 auto;
+        }
+
+        .opening-hours {
+            background: rgba(255,107,53,0.2);
+            padding: 1.5rem;
+            border-radius: 10px;
+            margin-top: 2rem;
+            font-size: 1.3rem;
+            color: white;
+            text-shadow: 1px 1px 2px rgba(0,0,0,0.5);
+        }
+
+        /* Button */
+        .cta-btn {
+            display: inline-block;
+            background: #ff6b35;
+            color: white;
+            padding: 1rem 2rem;
+            border-radius: 50px;
+            text-decoration: none;
+            font-size: 1.2rem;
+            font-weight: bold;
+            margin-top: 1rem;
+            transition: all 0.3s;
+        }
+
+        .cta-btn:hover {
+            background: #e55a2b;
+            transform: translateY(-3px);
+            box-shadow: 0 10px 25px rgba(255,107,53,0.4);
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+            
+            .hero p {
+                font-size: 1.2rem;
+            }
+            
+            nav ul {
+                flex-direction: column;
+                text-align: center;
+            }
+            
+            nav li {
+                margin: 0.5rem 0;
+            }
+        }
+
+        /* Smooth scrolling */
+        html {
+            scroll-behavior: smooth;
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav>
+        <ul>
+            <li><a href="#home">Home</a></li>
+            <li><a href="#about">About</a></li>
+            <li><a href="#services">Services</a></li>
+            <li><a href="#equipment">Equipment</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <div class="container">
+            <h1>POWER HOUSE GYM</h1>
+            <p>Transform Your Body. Build Your Strength.</p>
+            <div class="contact-info">
+                <div>📍 RTO Office Rd, Navodaya Colony, Anantapur, Andhra Pradesh 515001</div>
+                <div>📞 8885505830</div>
+            </div>
+            <div class="motto">👉 "Train Hard. Stay Strong."</div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="about">
+        <div class="container">
+            <h2 class="section-title">About Power House Gym</h2>
+            <p>Welcome to Power House Gym, where fitness meets dedication. We provide modern equipment, professional training, and a motivating environment to help you achieve your fitness goals.</p>
+            <p>Whether you are a beginner or an advanced athlete, our gym is designed to support your journey.</p>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section id="services" class="services">
+        <div class="container">
+            <h2 class="section-title">Our Services</h2>
+            <div class="services-grid">
+                <div class="service-item">
+                    <h3>✔ Aerobics</h3>
+                    <p>Fun and effective cardio workouts to improve flexibility and endurance.</p>
+                </div>
+                <div class="service-item">
+                    <h3>✔ Cycling</h3>
+                    <p>High-intensity indoor cycling classes for maximum fat burn.</p>
+                </div>
+                <div class="service-item">
+                    <h3>✔ Personal Training</h3>
+                    <p>One-on-one training tailored to your specific fitness goals.</p>
+                </div>
+                <div class="service-item">
+                    <h3>✔ Weight Training</h3>
+                    <p>Professional strength training with expert guidance.</p>
+                </div>
+            </div>
+            <div style="text-align: center; margin-top: 3rem;">
+                <p style="font-size: 2rem; color: #ff6b35; font-weight: bold;">👉 "Your transformation starts here."</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Equipment Section -->
+    <section id="equipment">
+        <div class="container">
+            <h2 class="section-title">Advanced Equipment</h2>
+            <div class="equipment-grid">
+                <div class="equipment-item">
+                    <img src="precision-leg-trainer.jpg" alt="Precision Leg Trainer"> <!-- Replace with your image -->
+                    <h3>Precision Leg Trainer</h3>
+                </div>
+                <div class="equipment-item">
+                    <img src="cable-machine.jpg" alt="Cable Machine"> <!-- Replace with your image -->
+                    <h3>Cable Machine</h3>
+                </div>
+                <div class="equipment-item">
+                    <img src="leg-press-machine.jpg" alt="Leg Press Machine"> <!-- Replace with your image -->
+                    <h3>Leg Press Machine</h3>
+                </div>
+                <div class="equipment-item">
+                    <img src="ab-coaster.jpg" alt="Ab Coaster"> <!-- Replace with your image -->
+                    <h3>Ab Coaster</h3>
+                </div>
+            </div>
+            <div style="text-align: center; margin-top: 3rem;">
+                <p style="font-size: 2rem; color: white; font-weight: bold; text-shadow: 2px 2px 4px rgba(0,0,0,0.8);">👉 "Train with advanced machines for maximum results."</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="contact">
+        <div class="container">
+            <h2 class="section-title">Contact Us</h2>
+            <div class="contact-info-large">
+                <div style="font-size: 1.5rem; margin-bottom: 1rem;">
+                    📍 Address: RTO Office Rd, Navodaya Colony, Anantapur, Andhra Pradesh 515001
+                </div>
+                <div style="font-size: 1.5rem; margin-bottom: 2rem;">
+                    📞 Phone: 8885505830
+                </div>
+                <div class="opening-hours">
+                    🕗 Opening Hours:<br>
+                    5:30 AM - 10:00 AM | 4:30 PM - 9:00 PM
+                </div>
+                <a href="tel:8885505830" class="cta-btn">Call Now</a>
+            </div>
+        </div>
+    </section>
+
+    <script>
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Add scroll effect to navigation
+        window.addEventListener('scroll', function() {
+            const nav = document.querySelector('nav');
+            if (window.scrollY > 100) {
+                nav.style.background = 'rgba(0,0,0,0.95)';
+            } else {
+                nav.style.background = 'rgba(0,0,0,0.9)';
+            }
+        });
+    </script>
+</body>
+      </html>
